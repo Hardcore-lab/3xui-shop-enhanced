@@ -1,0 +1,25 @@
+http:
+  routers:
+    bot-https:
+      rule: 'Host(`{{ env "BOT_DOMAIN" }}`) && (Path(`/connection`) || Path(`/heleket`))'
+      entryPoints:
+        - websecure
+      service: bot-service
+      tls: {}
+    bot-http:
+      rule: 'Host(`{{ env "BOT_DOMAIN" }}`) && (Path(`/connection`) || Path(`/heleket`))'
+      entryPoints:
+        - web
+      middlewares:
+        - redirect-to-https
+      service: bot-service
+  middlewares:
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+  services:
+    bot-service:
+      loadBalancer:
+        servers:
+          - url: "http://3xui-shop-bot:8080"

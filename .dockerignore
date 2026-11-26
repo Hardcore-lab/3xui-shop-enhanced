@@ -1,0 +1,16 @@
+*.log
+*.zip
+*.gz
+.env
+__pycache__
+*.pyc
+.git
+.env.*
+!.env.example
+*.env
+*.backup
+*.bak
+certs/
+backups/
+*.db
+*.sqlite3

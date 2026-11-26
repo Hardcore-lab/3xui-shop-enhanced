@@ -1,0 +1,56 @@
+# Backups - никогда не коммитить
+backups/
+*.tar.gz
+*.sqlite3
+*.db
+
+# Logs
+*.log
+app/logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+.plans.json
+.env.backup
+
+# Secrets and configs with sensitive data
+configs/**/secrets/
+configs/**/*.secret
+configs/**/*.prod
+**/local_settings.py
+certs/*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker overrides
+docker-compose.override.yml
+
+# Temporary
+tmp_test/
+*.tmp
+*.bak
+*.backup
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+
+*.key
+*.p12
+*.pfx
